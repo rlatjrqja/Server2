@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lecture02", "Lecture02.csproj", "{02F41EE9-6FE0-499D-9DB0-F89C78F6C315}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9C98D16C-E3BC-4D60-94BB-C005B189D3F6} = {9C98D16C-E3BC-4D60-94BB-C005B189D3F6}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCP_ServerLib", "..\TCP_ServerLib\TCP_ServerLib.csproj", "{9C98D16C-E3BC-4D60-94BB-C005B189D3F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02F41EE9-6FE0-499D-9DB0-F89C78F6C315}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02F41EE9-6FE0-499D-9DB0-F89C78F6C315}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02F41EE9-6FE0-499D-9DB0-F89C78F6C315}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02F41EE9-6FE0-499D-9DB0-F89C78F6C315}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C98D16C-E3BC-4D60-94BB-C005B189D3F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C98D16C-E3BC-4D60-94BB-C005B189D3F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C98D16C-E3BC-4D60-94BB-C005B189D3F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C98D16C-E3BC-4D60-94BB-C005B189D3F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {108EE43F-4A4E-4663-AF0C-E0367260E906}
+	EndGlobalSection
+EndGlobal

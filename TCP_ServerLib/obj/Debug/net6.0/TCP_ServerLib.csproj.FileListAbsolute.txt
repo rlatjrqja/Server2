@@ -1,0 +1,11 @@
+C:\YUHAN\ServerProgramming_2\TCP_ServerLib\bin\Debug\net6.0\TCP_ServerLib.deps.json
+C:\YUHAN\ServerProgramming_2\TCP_ServerLib\bin\Debug\net6.0\TCP_ServerLib.dll
+C:\YUHAN\ServerProgramming_2\TCP_ServerLib\bin\Debug\net6.0\TCP_ServerLib.pdb
+C:\YUHAN\ServerProgramming_2\TCP_ServerLib\obj\Debug\net6.0\TCP_ServerLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\YUHAN\ServerProgramming_2\TCP_ServerLib\obj\Debug\net6.0\TCP_ServerLib.AssemblyInfoInputs.cache
+C:\YUHAN\ServerProgramming_2\TCP_ServerLib\obj\Debug\net6.0\TCP_ServerLib.AssemblyInfo.cs
+C:\YUHAN\ServerProgramming_2\TCP_ServerLib\obj\Debug\net6.0\TCP_ServerLib.csproj.CoreCompileInputs.cache
+C:\YUHAN\ServerProgramming_2\TCP_ServerLib\obj\Debug\net6.0\TCP_ServerLib.dll
+C:\YUHAN\ServerProgramming_2\TCP_ServerLib\obj\Debug\net6.0\refint\TCP_ServerLib.dll
+C:\YUHAN\ServerProgramming_2\TCP_ServerLib\obj\Debug\net6.0\TCP_ServerLib.pdb
+C:\YUHAN\ServerProgramming_2\TCP_ServerLib\obj\Debug\net6.0\ref\TCP_ServerLib.dll
