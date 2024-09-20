@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\YUHAN\\ServerProgramming_2\\TCP_ServerLib\\TCP_ServerLib.csproj": {}
+    "C:\\YUHAN\\Server2\\TCP_ServerLib\\TCP_ServerLib.csproj": {}
   },
   "projects": {
-    "C:\\YUHAN\\ServerProgramming_2\\TCP_ServerLib\\TCP_ServerLib.csproj": {
+    "C:\\YUHAN\\Server2\\TCP_ServerLib\\TCP_ServerLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\YUHAN\\ServerProgramming_2\\TCP_ServerLib\\TCP_ServerLib.csproj",
+        "projectUniqueName": "C:\\YUHAN\\Server2\\TCP_ServerLib\\TCP_ServerLib.csproj",
         "projectName": "TCP_ServerLib",
-        "projectPath": "C:\\YUHAN\\ServerProgramming_2\\TCP_ServerLib\\TCP_ServerLib.csproj",
+        "projectPath": "C:\\YUHAN\\Server2\\TCP_ServerLib\\TCP_ServerLib.csproj",
         "packagesPath": "C:\\Users\\rlatj\\.nuget\\packages\\",
-        "outputPath": "C:\\YUHAN\\ServerProgramming_2\\TCP_ServerLib\\obj\\",
+        "outputPath": "C:\\YUHAN\\Server2\\TCP_ServerLib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\rlatj\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -8,15 +8,15 @@ namespace TCP_ServerLib
     public class ConnectedClient
     {
         Socket client;
-        DateTime time1;
-        DateTime time2;
+        DateTime receiveAt;
+        DateTime sendAt;
         string? message_queue = null;
 
         public ConnectedClient(Socket socket)
         {
             client = socket;
             Thread th = new Thread(MulithreadingClient);
-            th.Start(socket);
+            th.Start();
         }
 
         private void MulithreadingClient()
@@ -25,12 +25,30 @@ namespace TCP_ServerLib
             {
                 while (client.Connected)
                 {
-                    JsonElement json = Receive(client);
-                    if (!IsValidJson(json)) continue;
+                    while(message_queue != null)
+                    {
+                        receiveAt = DateTime.Now;
+                        string? data = JsonConverter.GetOneMessage(ref message_queue);
 
-                    Print(json);
-                    if (!Send(client, json)) break;
+                        // json이 끝나지 않았을 경우 ( }가 없는 등 이유로 )
+                        if (data == null) break;
+
+                        JsonDocument? json = JsonConverter.StringToJson(data);
+
+                        // json에 문제가 있는 경우 ( ,가 없는 등 이유로 )
+                        if (json == null) break;
+                        PrintConsole(json);
+
+                        sendAt = DateTime.Now;
+                        Send(json);
+                    }
+
+                    Receive();
                 }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine($"Client Abnormal Termination");
             }
             finally
             {
@@ -39,93 +57,31 @@ namespace TCP_ServerLib
             }
         }
 
-        private bool IsValidJson(JsonElement json)
-        {
-            // JSON 데이터가 올바른 형식인지 확인
-            return json.ValueKind != JsonValueKind.Undefined && json.ValueKind != JsonValueKind.Null;
-        }
-
-        JsonElement Receive(Socket socket)
+        void Receive()
         {
             byte[] buffer = new byte[1024];
-            string? data = null;
+            int length = client.Receive(buffer);
+            if(length <= 0) return;
 
-            do
-            {
-                int length = socket.Receive(buffer);
-                time1 = DateTime.Now;
-                message_queue = Encoding.UTF8.GetString(buffer, 0, length);
-                data = JsonConverter.GetOneJson(message_queue);
-            } while (data == null);
-
-            try
-            {
-                JsonDocument jsonDocument = JsonDocument.Parse(data);
-                JsonElement rootElement = jsonDocument.RootElement;
-
-                return rootElement;
-            }
-            catch (JsonException ex)
-            {
-                string errorJson = $"{{\"error\": \"Invalid JSON received\", " +
-                    $"\"message\": \"{ex.Message}\"}}";
-                JsonDocument errorDoc = JsonDocument.Parse(errorJson);
-                JsonElement rootElement = errorDoc.RootElement;
-
-                return rootElement;
-            }
+            message_queue = Encoding.UTF8.GetString(buffer, 0, length);
         }
 
-        private void Print(JsonElement json)
+        private void PrintConsole(JsonDocument json)
         {
-            foreach (JsonProperty prop in json.EnumerateObject())
+            JsonElement root = json.RootElement;
+            foreach (JsonProperty prop in root.EnumerateObject())
             {
                 Console.WriteLine($"{prop.Name}: {prop.Value}");
             }
         }
 
-        private string Record()
+        private void Send(JsonDocument json)
         {
-            time2 = DateTime.Now;
-            TimeSpan duration = time2 - time1;
-            string time = $"{duration.Seconds}.{0:D2}{duration.Milliseconds}";
-
-            return time;
-        }
-
-        private bool Send(Socket socket, JsonElement json)
-        {
-            if (!json.TryGetProperty("ID", out JsonElement identity))
-            {
-                var jsonObject = new JsonObject
-                {
-                    ["ID"] = "ERROR",
-                    ["process_time"] = Record()
-                };
-
-                string jsonString = jsonObject.ToJsonString();
-                byte[] buffer = Encoding.UTF8.GetBytes(jsonString);
-
-                socket.Send(buffer);
-                Console.WriteLine("에러메세지 반환 완료.");
-
-                return false;
-            }
-            else
-            {
-                var jsonObject = new JsonObject
-                {
-                    ["ID"] = identity.GetString(),
-                    ["process_time"] = Record()
-                };
-
-                string jsonString = jsonObject.ToJsonString();
-                byte[] buffer = Encoding.UTF8.GetBytes(jsonString);
-
-                socket.Send(buffer);
-                Console.WriteLine("JSON 데이터 전송 완료.");
-                return true;
-            }
+            string message = JsonConverter.JsonToString(json,sendAt,receiveAt);
+            message += "\r\n";
+            byte[] buffer = Encoding.UTF8.GetBytes(message);
+            client.Send(buffer);
+            Console.WriteLine("JSON 데이터 전송 완료.");
         }
     }
 }

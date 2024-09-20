@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\YUHAN\\ServerProgramming_2\\Lecture02\\Lecture02.csproj",
+      "projectUniqueName": "C:\\YUHAN\\Server2\\Lecture02\\Lecture02.csproj",
       "projectName": "Lecture02",
-      "projectPath": "C:\\YUHAN\\ServerProgramming_2\\Lecture02\\Lecture02.csproj",
+      "projectPath": "C:\\YUHAN\\Server2\\Lecture02\\Lecture02.csproj",
       "packagesPath": "C:\\Users\\rlatj\\.nuget\\packages\\",
-      "outputPath": "C:\\YUHAN\\ServerProgramming_2\\Lecture02\\obj\\",
+      "outputPath": "C:\\YUHAN\\Server2\\Lecture02\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\rlatj\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -53,8 +53,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\YUHAN\\ServerProgramming_2\\TCP_ServerLib\\TCP_ServerLib.csproj": {
-              "projectPath": "C:\\YUHAN\\ServerProgramming_2\\TCP_ServerLib\\TCP_ServerLib.csproj"
+            "C:\\YUHAN\\Server2\\TCP_ServerLib\\TCP_ServerLib.csproj": {
+              "projectPath": "C:\\YUHAN\\Server2\\TCP_ServerLib\\TCP_ServerLib.csproj"
             }
           }
         }
