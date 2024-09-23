@@ -14,7 +14,15 @@
           "Lecture02.dll": {}
         }
       },
+      "MSG_ConvertLib/1.0.0": {
+        "runtime": {
+          "MSG_ConvertLib.dll": {}
+        }
+      },
       "TCP_ServerLib/1.0.0": {
+        "dependencies": {
+          "MSG_ConvertLib": "1.0.0"
+        },
         "runtime": {
           "TCP_ServerLib.dll": {}
         }
@@ -23,6 +31,11 @@
   },
   "libraries": {
     "Lecture02/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MSG_ConvertLib/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

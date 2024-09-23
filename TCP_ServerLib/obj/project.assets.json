@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "MSG_ConvertLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/MSG_ConvertLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MSG_ConvertLib.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "MSG_ConvertLib/1.0.0": {
+      "type": "project",
+      "path": "../JsonConverter/MSG_ConvertLib.csproj",
+      "msbuildProject": "../JsonConverter/MSG_ConvertLib.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "MSG_ConvertLib >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\rlatj\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\YUHAN\\Server2\\JsonConverter\\MSG_ConvertLib.csproj": {
+              "projectPath": "C:\\YUHAN\\Server2\\JsonConverter\\MSG_ConvertLib.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

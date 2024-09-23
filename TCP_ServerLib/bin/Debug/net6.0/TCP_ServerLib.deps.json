@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "TCP_ServerLib/1.0.0": {
+        "dependencies": {
+          "MSG_ConvertLib": "1.0.0"
+        },
         "runtime": {
           "TCP_ServerLib.dll": {}
+        }
+      },
+      "MSG_ConvertLib/1.0.0": {
+        "runtime": {
+          "MSG_ConvertLib.dll": {}
         }
       }
     }
   },
   "libraries": {
     "TCP_ServerLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MSG_ConvertLib/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

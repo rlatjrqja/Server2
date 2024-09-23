@@ -1,0 +1,11 @@
+C:\YUHAN\Server2\JsonConverter\bin\Debug\net6.0\MSG_ConvertLib.deps.json
+C:\YUHAN\Server2\JsonConverter\bin\Debug\net6.0\MSG_ConvertLib.dll
+C:\YUHAN\Server2\JsonConverter\bin\Debug\net6.0\MSG_ConvertLib.pdb
+C:\YUHAN\Server2\JsonConverter\obj\Debug\net6.0\MSG_ConvertLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\YUHAN\Server2\JsonConverter\obj\Debug\net6.0\MSG_ConvertLib.AssemblyInfoInputs.cache
+C:\YUHAN\Server2\JsonConverter\obj\Debug\net6.0\MSG_ConvertLib.AssemblyInfo.cs
+C:\YUHAN\Server2\JsonConverter\obj\Debug\net6.0\MSG_ConvertLib.csproj.CoreCompileInputs.cache
+C:\YUHAN\Server2\JsonConverter\obj\Debug\net6.0\MSG_ConvertLib.dll
+C:\YUHAN\Server2\JsonConverter\obj\Debug\net6.0\refint\MSG_ConvertLib.dll
+C:\YUHAN\Server2\JsonConverter\obj\Debug\net6.0\MSG_ConvertLib.pdb
+C:\YUHAN\Server2\JsonConverter\obj\Debug\net6.0\ref\MSG_ConvertLib.dll

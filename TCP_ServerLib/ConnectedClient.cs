@@ -2,6 +2,7 @@
 using System.Text.Json.Nodes;
 using System.Text.Json;
 using System.Text;
+using MSG_ConvertLib;
 
 namespace TCP_ServerLib
 {
@@ -48,7 +49,7 @@ namespace TCP_ServerLib
             }
             catch (Exception)
             {
-                Console.WriteLine($"Client Abnormal Termination");
+                Console.WriteLine($"클라이언트 비정상 종료.");
             }
             finally
             {
@@ -63,7 +64,7 @@ namespace TCP_ServerLib
             int length = client.Receive(buffer);
             if(length <= 0) return;
 
-            message_queue = Encoding.UTF8.GetString(buffer, 0, length);
+            message_queue += Encoding.UTF8.GetString(buffer, 0, length);
         }
 
         private void PrintConsole(JsonDocument json)

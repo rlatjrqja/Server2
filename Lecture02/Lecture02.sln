@@ -8,7 +8,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lecture02", "Lecture02.cspr
 		{9C98D16C-E3BC-4D60-94BB-C005B189D3F6} = {9C98D16C-E3BC-4D60-94BB-C005B189D3F6}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCP_ServerLib", "..\TCP_ServerLib\TCP_ServerLib.csproj", "{9C98D16C-E3BC-4D60-94BB-C005B189D3F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TCP_ServerLib", "..\TCP_ServerLib\TCP_ServerLib.csproj", "{9C98D16C-E3BC-4D60-94BB-C005B189D3F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSG_ConvertLib", "..\JsonConverter\MSG_ConvertLib.csproj", "{3D02FC02-5217-424F-B592-C52A7889B9D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +26,10 @@ Global
 		{9C98D16C-E3BC-4D60-94BB-C005B189D3F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C98D16C-E3BC-4D60-94BB-C005B189D3F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C98D16C-E3BC-4D60-94BB-C005B189D3F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D02FC02-5217-424F-B592-C52A7889B9D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D02FC02-5217-424F-B592-C52A7889B9D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D02FC02-5217-424F-B592-C52A7889B9D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D02FC02-5217-424F-B592-C52A7889B9D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

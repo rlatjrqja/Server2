@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text.Json.Nodes;
 using System.Text.Json;
-using System.Text.Json.Nodes;
-using System.Threading.Tasks;
 
-namespace TCP_ServerLib
+namespace MSG_ConvertLib
 {
-    internal class JsonConverter
+    public class JsonConverter
     {
         public static string? GetOneMessage(ref string data)
         {
             int startIndex = data.IndexOf('{');
-            int endIndex = data.IndexOf('}')+1;
-            if (startIndex < 0 || endIndex < 0) return null;
+            int endIndex = data.IndexOf('}') + 1;
+            if (startIndex < 0 || endIndex <= 0) return null;
 
             string message = data.Substring(startIndex, endIndex);
 

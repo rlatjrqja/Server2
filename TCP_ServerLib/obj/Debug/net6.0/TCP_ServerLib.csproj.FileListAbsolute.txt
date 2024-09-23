@@ -20,3 +20,7 @@ C:\YUHAN\Server2\TCP_ServerLib\obj\Debug\net6.0\TCP_ServerLib.dll
 C:\YUHAN\Server2\TCP_ServerLib\obj\Debug\net6.0\refint\TCP_ServerLib.dll
 C:\YUHAN\Server2\TCP_ServerLib\obj\Debug\net6.0\TCP_ServerLib.pdb
 C:\YUHAN\Server2\TCP_ServerLib\obj\Debug\net6.0\ref\TCP_ServerLib.dll
+C:\YUHAN\Server2\TCP_ServerLib\bin\Debug\net6.0\MSG_ConvertLib.dll
+C:\YUHAN\Server2\TCP_ServerLib\bin\Debug\net6.0\MSG_ConvertLib.pdb
+C:\YUHAN\Server2\TCP_ServerLib\obj\Debug\net6.0\TCP_ServerLib.csproj.AssemblyReference.cache
+C:\YUHAN\Server2\TCP_ServerLib\obj\Debug\net6.0\TCP_ServerLib.csproj.CopyComplete

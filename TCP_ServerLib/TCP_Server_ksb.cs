@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Sockets;
+﻿using System.Net.Sockets;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TCP_ServerLib
 {
@@ -29,17 +24,23 @@ namespace TCP_ServerLib
 
             while (true)
             {
-                Socket host = server_host.Accept();
-                ConnectedClient client = new ConnectedClient(host);
-                users.Add(client);
-                CountUsers();
+                Socket socket = server_host.Accept();
+                Connect(socket);
             }
+        }
+
+        void Connect(Socket host)
+        {
+            Console.WriteLine($"새로운 클라이언트 연결.");
+            ConnectedClient client = new ConnectedClient(host);
+            users.Add(client);
+            CountUsers();
         }
 
         public static void Disconnect(ConnectedClient socket)
         {
-            users.Remove(socket);
             Console.WriteLine($"클라이언트 연결 종료.");
+            users.Remove(socket);
             CountUsers();
         }
 
