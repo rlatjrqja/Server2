@@ -1,0 +1,12 @@
+C:\YUHAN\Server2\ServerObject\bin\Debug\net8.0\ServerObject.deps.json
+C:\YUHAN\Server2\ServerObject\bin\Debug\net8.0\ServerObject.dll
+C:\YUHAN\Server2\ServerObject\bin\Debug\net8.0\ServerObject.pdb
+C:\YUHAN\Server2\ServerObject\obj\Debug\net8.0\ServerObject.GeneratedMSBuildEditorConfig.editorconfig
+C:\YUHAN\Server2\ServerObject\obj\Debug\net8.0\ServerObject.AssemblyInfoInputs.cache
+C:\YUHAN\Server2\ServerObject\obj\Debug\net8.0\ServerObject.AssemblyInfo.cs
+C:\YUHAN\Server2\ServerObject\obj\Debug\net8.0\ServerObject.csproj.CoreCompileInputs.cache
+C:\YUHAN\Server2\ServerObject\obj\Debug\net8.0\ServerObject.sourcelink.json
+C:\YUHAN\Server2\ServerObject\obj\Debug\net8.0\ServerObject.dll
+C:\YUHAN\Server2\ServerObject\obj\Debug\net8.0\refint\ServerObject.dll
+C:\YUHAN\Server2\ServerObject\obj\Debug\net8.0\ServerObject.pdb
+C:\YUHAN\Server2\ServerObject\obj\Debug\net8.0\ref\ServerObject.dll
