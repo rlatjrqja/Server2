@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocketTest", "SocketTest.csproj", "{3556BCF2-9CAB-41D5-A2D1-1BE73309FA7B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Protocols", "..\Protocol\Protocols.csproj", "{6FB1A770-C7A6-4FEE-BFD2-68FDA7EB4819}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3556BCF2-9CAB-41D5-A2D1-1BE73309FA7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3556BCF2-9CAB-41D5-A2D1-1BE73309FA7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3556BCF2-9CAB-41D5-A2D1-1BE73309FA7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FB1A770-C7A6-4FEE-BFD2-68FDA7EB4819}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FB1A770-C7A6-4FEE-BFD2-68FDA7EB4819}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FB1A770-C7A6-4FEE-BFD2-68FDA7EB4819}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FB1A770-C7A6-4FEE-BFD2-68FDA7EB4819}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

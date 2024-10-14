@@ -4,6 +4,11 @@ using System.Text;
 
 namespace Protocols
 {
+    static class Constants
+    {
+        //public const Byte FTP = 
+    }
+
     public class Protocol
     {
         public Byte proto_VER { get; private set; }
@@ -46,38 +51,33 @@ namespace Protocols
         }
         public Byte[] StartConnectionRequest() 
         {
-            MakeHeader(1, 000, 0, 0, 0);
+            BODY = Encoding.UTF8.GetBytes("Request Connection");
+            MakeHeader(1, 000, 0, BODY.Length, 0);
 
-            // 각 필드를 바이트 배열로 변환
-            byte[] verBytes = new byte[] { proto_VER };
-            byte[] opcodeBytes = BitConverter.GetBytes(OPCODE);
-            byte[] seqNoBytes = BitConverter.GetBytes(SEQ_NO);
-            byte[] lengthBytes = BitConverter.GetBytes(LENGTH);
-            byte[] crcBytes = BitConverter.GetBytes(CRC);
+            List<byte> packet = new List<byte>();
+            packet.Add(proto_VER);
+            packet.AddRange(BitConverter.GetBytes(OPCODE));
+            packet.AddRange(BitConverter.GetBytes(SEQ_NO));
+            packet.AddRange(BitConverter.GetBytes(LENGTH));
+            packet.AddRange(BitConverter.GetBytes(CRC));
+            packet.AddRange(BODY);
 
-            // Little-endian 시스템이라면 바이트 순서 반전 필요
-            if (BitConverter.IsLittleEndian)
-            {
-                Array.Reverse(opcodeBytes);
-                Array.Reverse(seqNoBytes);
-                Array.Reverse(lengthBytes);
-                Array.Reverse(crcBytes);
-            }
-
-            // 모든 바이트 배열을 결합하여 헤더 생성
-            byte[] header = new byte[verBytes.Length + opcodeBytes.Length + seqNoBytes.Length + lengthBytes.Length + crcBytes.Length];
-            Buffer.BlockCopy(verBytes, 0, header, 0, verBytes.Length);
-            Buffer.BlockCopy(opcodeBytes, 0, header, verBytes.Length, opcodeBytes.Length);
-            Buffer.BlockCopy(seqNoBytes, 0, header, verBytes.Length + opcodeBytes.Length, seqNoBytes.Length);
-            Buffer.BlockCopy(lengthBytes, 0, header, verBytes.Length + opcodeBytes.Length + seqNoBytes.Length, lengthBytes.Length);
-            Buffer.BlockCopy(crcBytes, 0, header, verBytes.Length + opcodeBytes.Length + seqNoBytes.Length + lengthBytes.Length, crcBytes.Length);
-
-            return header;
+            return packet.ToArray();
         }
         public Byte[] StartConnectionResponse(bool ok) 
         {
-            MakeBody(4096);
-            BODY = Encoding.UTF8.GetBytes("Hello World!");
+            if (ok)
+            {
+                OPCODE = 000;
+                BODY = Encoding.UTF8.GetBytes("000 OK");
+            }
+            else
+            {
+                OPCODE = 001;
+                BODY = Encoding.UTF8.GetBytes("001 reject");
+            }
+
+            byte[] response = new byte[GetSizeHeader()+ BODY.Length];
             return BODY;
         }
         public Byte[] TransmitFileRequest(string filename, int size) 

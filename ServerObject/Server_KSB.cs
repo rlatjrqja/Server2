@@ -56,7 +56,8 @@ namespace ServerObject
             {
                 Socket host = server_host.Accept();
                 UserHandler newUser = new(host);
-                if (!newUser.Connect()) continue;
+                byte[] response = newUser.WaitRequest();
+                newUser.client.Send(response);
                 newUser.Listen();
             }
         }

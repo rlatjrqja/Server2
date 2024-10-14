@@ -17,10 +17,18 @@ namespace ServerObject
             protocol = new Protocol();
         }
 
-        public bool Connect()
+        public byte[] WaitRequest()
         {
             //byte[] head = protocol.StartConnectionRequest();
-            bool connection = true;
+            bool connection=false;
+            byte[] request = new byte[1024];
+            client.Receive(request);
+            if(request[1] == 000)
+            {
+                connection = true;
+            }
+
+            byte[] response = protocol.StartConnectionResponse(connection);
 
             /*switch (protocol.OPCODE)
             {
@@ -35,7 +43,7 @@ namespace ServerObject
                     break;
             }*/
 
-            return connection;
+            return response;
         }
 
         public void Listen()
