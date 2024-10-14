@@ -17,3 +17,5 @@ C:\YUHAN\Server2\newKSBserver\obj\Debug\net8.0\refint\newKSBserver.dll
 C:\YUHAN\Server2\newKSBserver\obj\Debug\net8.0\newKSBserver.pdb
 C:\YUHAN\Server2\newKSBserver\obj\Debug\net8.0\newKSBserver.genruntimeconfig.cache
 C:\YUHAN\Server2\newKSBserver\obj\Debug\net8.0\ref\newKSBserver.dll
+C:\YUHAN\Server2\newKSBserver\bin\Debug\net8.0\Protocols.dll
+C:\YUHAN\Server2\newKSBserver\bin\Debug\net8.0\Protocols.pdb

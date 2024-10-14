@@ -7,14 +7,30 @@
   "targets": {
     ".NETCoreApp,Version=v8.0": {
       "ServerObject/1.0.0": {
+        "dependencies": {
+          "Protocols": "1.0.0"
+        },
         "runtime": {
           "ServerObject.dll": {}
+        }
+      },
+      "Protocols/1.0.0": {
+        "runtime": {
+          "Protocols.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
   },
   "libraries": {
     "ServerObject/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Protocols/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

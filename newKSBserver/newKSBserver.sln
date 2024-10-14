@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "newKSBserver", "newKSBserver.csproj", "{54146A7C-FEE2-4FA5-97B4-74981FB73A6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "newKSBserver", "newKSBserver.csproj", "{54146A7C-FEE2-4FA5-97B4-74981FB73A6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerObject", "..\ServerObject\ServerObject.csproj", "{973BF1A4-CDB2-4770-AD05-DBDD7663607B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerObject", "..\ServerObject\ServerObject.csproj", "{973BF1A4-CDB2-4770-AD05-DBDD7663607B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Protocols", "..\Protocol\Protocols.csproj", "{F10233E5-299B-4287-8769-D2AAA1613DDB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{973BF1A4-CDB2-4770-AD05-DBDD7663607B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{973BF1A4-CDB2-4770-AD05-DBDD7663607B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{973BF1A4-CDB2-4770-AD05-DBDD7663607B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F10233E5-299B-4287-8769-D2AAA1613DDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F10233E5-299B-4287-8769-D2AAA1613DDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F10233E5-299B-4287-8769-D2AAA1613DDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F10233E5-299B-4287-8769-D2AAA1613DDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

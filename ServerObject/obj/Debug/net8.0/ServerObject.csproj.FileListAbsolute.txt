@@ -10,3 +10,7 @@ C:\YUHAN\Server2\ServerObject\obj\Debug\net8.0\ServerObject.dll
 C:\YUHAN\Server2\ServerObject\obj\Debug\net8.0\refint\ServerObject.dll
 C:\YUHAN\Server2\ServerObject\obj\Debug\net8.0\ServerObject.pdb
 C:\YUHAN\Server2\ServerObject\obj\Debug\net8.0\ref\ServerObject.dll
+C:\YUHAN\Server2\ServerObject\bin\Debug\net8.0\Protocols.dll
+C:\YUHAN\Server2\ServerObject\bin\Debug\net8.0\Protocols.pdb
+C:\YUHAN\Server2\ServerObject\obj\Debug\net8.0\ServerObject.csproj.AssemblyReference.cache
+C:\YUHAN\Server2\ServerObject\obj\Debug\net8.0\ServerOb.280AFF5A.Up2Date

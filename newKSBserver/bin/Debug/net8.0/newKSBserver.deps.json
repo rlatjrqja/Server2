@@ -14,7 +14,18 @@
           "newKSBserver.dll": {}
         }
       },
+      "Protocols/1.0.0": {
+        "runtime": {
+          "Protocols.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "ServerObject/1.0.0": {
+        "dependencies": {
+          "Protocols": "1.0.0"
+        },
         "runtime": {
           "ServerObject.dll": {
             "assemblyVersion": "1.0.0",
@@ -26,6 +37,11 @@
   },
   "libraries": {
     "newKSBserver/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Protocols/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

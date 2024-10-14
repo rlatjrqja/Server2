@@ -2,6 +2,7 @@
 using System.Net;
 using System.Collections.Generic;
 using System.Text;
+using Protocols;
 
 namespace ServerObject
 {
@@ -27,7 +28,7 @@ namespace ServerObject
         {
             server_host.Listen();
             Task.Run(AcceptUser);
-            MessageReceive += SendToAll;
+            //MessageReceive += SendToAll;
 
             while (true)
             {
@@ -55,11 +56,8 @@ namespace ServerObject
             {
                 Socket host = server_host.Accept();
                 UserHandler newUser = new(host);
-                users.Add(newUser);
-
-                string helloMsg = "New User Connected";
-                byte[] data = Encoding.UTF8.GetBytes(helloMsg);
-                Server_KSB.instance.MessageReceive.Invoke(data);
+                if (!newUser.Connect()) continue;
+                newUser.Listen();
             }
         }
 

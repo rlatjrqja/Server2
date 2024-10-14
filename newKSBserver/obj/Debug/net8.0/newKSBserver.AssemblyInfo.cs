@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("newKSBserver")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cc05e40645a6a8ddec4509d67573fb9cefde344f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+38ce240ad3f01a20bcaaa5620c96587a6d8f674e")]
 [assembly: System.Reflection.AssemblyProductAttribute("newKSBserver")]
 [assembly: System.Reflection.AssemblyTitleAttribute("newKSBserver")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
