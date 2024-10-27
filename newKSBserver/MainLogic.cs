@@ -6,7 +6,8 @@ namespace newKSBserver
     {
         static void Main(string[] args)
         {
-            string ip = "192.168.45.232";
+            //string ip = "192.168.45.232";
+            string ip = "172.18.27.199";
             int port = 50000;
 
             Server_KSB server_ = new Server_KSB(ip, port);

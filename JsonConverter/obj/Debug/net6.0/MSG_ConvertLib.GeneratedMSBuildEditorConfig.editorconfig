@@ -8,4 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MSG_ConvertLib
-build_property.ProjectDir = C:\YUHAN\Server2\JsonConverter\
+build_property.ProjectDir = D:\202034007\Server2\JsonConverter\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

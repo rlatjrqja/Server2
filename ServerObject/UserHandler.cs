@@ -10,58 +10,101 @@ namespace ServerObject
         public Socket client;
         string UserName = "Unknown";
         Protocol protocol;
+        int count = 0;
 
         public UserHandler(Socket socket)
         {
             client = socket;
+            Task.Run(Listen);
             protocol = new Protocol();
         }
 
-        public byte[] WaitRequest()
+        public byte[] WaitConnectRequest()
         {
-            //byte[] head = protocol.StartConnectionRequest();
-            bool connection=false;
-            byte[] request = new byte[1024];
-            client.Receive(request);
-            if(request[1] == 000)
+            bool connection = false;
+            
+            if (Server_KSB.instance.users.Count < 5)
             {
                 connection = true;
             }
 
             byte[] response = protocol.StartConnectionResponse(connection);
 
-            /*switch (protocol.OPCODE)
-            {
-                case 000:
-                    client.Send(head);
-                    byte[] body = protocol.StartConnectionResponse(true);
-                    client.Send(body);
-                    Server_KSB.instance.users.Add(this);
-                    connection = true;
-                    break;
-                case 001:
-                    break;
-            }*/
+            return response;
+        }
+
+        public byte[] WaitFileRequest(int size)
+        {
+            byte[] response = protocol.TransmitFileResponse(size);
 
             return response;
         }
 
         public void Listen()
         {
-            switch (protocol.OPCODE)
+            while(true)
             {
-                default:
-                    //ReceiveString();
-                    ReceiveFile();
-                    //byte[] imageArray = File.ReadAllBytes(@"C:\YUHAN\FTPtest.xlsx");
+                byte[] request = new byte[1024];
+                client.Receive(request);
+                int OPCODE = BitConverter.ToInt32(request, 1);
 
-                    //Console.WriteLine(Encoding.UTF8.GetString(imageArray));
-                    break;
-                case 101:
-                    break;
-                case 102:
-                    break;
+                /// request 없으면 종료? 예외처리
+
+                switch (OPCODE)
+                {
+                    // 접속 요청
+                    case 000:
+                        //ReceiveString();
+                        //ReceiveFile();
+                        //byte[] imageArray = File.ReadAllBytes(@"C:\YUHAN\FTPtest.xlsx");
+                        byte[] response = WaitConnectRequest();
+                        client.Send(response);
+                        Server_KSB.instance.users.Add(this);
+                        Console.WriteLine($"접속 요청 [Length]:{request.Length}");
+                        break;
+                    case 100:
+
+                        /*int headerSize = protocol.GetSizeHeader();
+                        int offset = headerSize + 1;
+
+                        byte[] body = new byte[request[3]];
+                        request.CopyTo(body, headerSize);
+
+                        byte[] fileNameSize;
+                        body.CopyTo(fileNameSize, 0);
+                        int fileNameSize = BitConverter.ToInt32(body[0]);
+                        string fileNameSize = body[0];*/
+
+                        /*int headerSize = protocol.GetSizeHeader();
+                        byte[] headerBuffer = new byte[headerSize];
+                        client.Receive(headerBuffer);
+                        WaitFileRequest(headerBuffer.Length);
+                        ReceiveFile();*/
+
+                        /*byte[] fileName = new byte[1024];
+                        client.Receive(fileName);
+                        protocol.TransmitFileResponse();*/
+
+                        Console.WriteLine("파일 전송 요청");
+                        while (client.Connected)
+                        {
+                            int state = ReceiveFile();
+                            if(state == 300 || state == 301) break;
+                            byte[] opcode = new byte[4];
+                            client.Send(BitConverter.GetBytes(state));
+                        }
+
+                        break;
+                    case 400:
+                        Console.WriteLine("정상 처리 완료");
+                        client.Send(BitConverter.GetBytes(500));
+                        break;
+                    default:
+                        Console.WriteLine($"Request error: {request[1]}");
+                        break;
+                }
             }
+            
         }
 
         void ReceiveString()
@@ -87,11 +130,11 @@ namespace ServerObject
             }
         }
 
-        void ReceiveFile()
+        public int ReceiveFile()
         {
             try
             {
-                while (client.Connected)
+                if (client.Connected)
                 {
                     
 
@@ -101,7 +144,7 @@ namespace ServerObject
                     if (bytesRead <= 0)
                     {
                         Console.WriteLine("파일 이름 길이를 수신하는 중 연결이 끊겼습니다.");
-                        return;
+                        return 101;
                     }
                     if (!BitConverter.IsLittleEndian) Array.Reverse(fileNameLengthBuffer);
                     int fileNameLength = BitConverter.ToInt32(fileNameLengthBuffer, 0);
@@ -112,7 +155,7 @@ namespace ServerObject
                     if (bytesRead <= 0)
                     {
                         Console.WriteLine("파일 이름을 수신하는 중 연결이 끊겼습니다.");
-                        return;
+                        return 101;
                     }
                     //if (BitConverter.IsLittleEndian) Array.Reverse(fileNameLengthBuffer);
 
@@ -125,14 +168,14 @@ namespace ServerObject
                     if (bytesRead <= 0)
                     {
                         Console.WriteLine("파일 크기를 수신하는 중 연결이 끊겼습니다.");
-                        return;
+                        return 102;
                     }
                     if (!BitConverter.IsLittleEndian) Array.Reverse(fileSizeBuffer);
                     long fileSize = BitConverter.ToInt64(fileSizeBuffer, 0);
                     Console.WriteLine($"수신할 파일 크기: {fileSize} 바이트");
 
                     // 4. 파일 데이터 수신
-                    string filePath = Path.Combine(@"C:\YUHAN\ReceivedFiles", fileName); // 저장 경로 설정
+                    string filePath = Path.Combine(@"..\..\..\..\ReceiveDir", fileName); // 저장 경로 설정
                     using (FileStream fs = new FileStream(filePath, FileMode.Create, FileAccess.Write))
                     {
                         long totalBytesReceived = 0;
@@ -146,20 +189,28 @@ namespace ServerObject
                             if (bytesReceived <= 0)
                             {
                                 Console.WriteLine("파일 수신 중 연결이 끊겼습니다.");
-                                return;
+                                return 102;
                             }
 
                             fs.Write(fileBuffer, 0, bytesReceived);
+
+                            count += bytesToRead;
+                            //Console.WriteLine(Encoding.UTF8.GetString(fileBuffer)+ "[count]"+ count);
                             totalBytesReceived += bytesReceived;
                         }
+
                     }
 
                     Console.WriteLine($"파일 {fileName} 수신 완료.");
+                    return 100;
                 }
+
+                return 300;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"ReceiveFile 오류: {ex.Message}");
+                return 301;
             }
         }
 

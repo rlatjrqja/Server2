@@ -26,7 +26,7 @@ namespace ServerObject
 
         public void StartServer()
         {
-            server_host.Listen();
+            server_host.Listen(5);
             Task.Run(AcceptUser);
             //MessageReceive += SendToAll;
 
@@ -54,11 +54,18 @@ namespace ServerObject
         {
             while (true)
             {
-                Socket host = server_host.Accept();
-                UserHandler newUser = new(host);
-                byte[] response = newUser.WaitRequest();
-                newUser.client.Send(response);
-                newUser.Listen();
+                try
+                {
+                    Socket host = server_host.Accept();
+                    UserHandler newUser = new(host);
+                    //byte[] response = newUser.WaitConnectRequest();
+                    //newUser.client.Send(response);
+                    //newUser.Listen();
+                }
+                catch (Exception ex)
+                {
+
+                }
             }
         }
 

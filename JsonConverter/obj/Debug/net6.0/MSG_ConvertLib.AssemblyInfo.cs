@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MSG_ConvertLib")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+82361499763c76dc815028f477da892d95457611")]
 [assembly: System.Reflection.AssemblyProductAttribute("MSG_ConvertLib")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MSG_ConvertLib")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

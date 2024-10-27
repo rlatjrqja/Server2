@@ -16,10 +16,7 @@
       },
       "Protocols/1.0.0": {
         "runtime": {
-          "Protocols.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Protocols.dll": {}
         }
       },
       "ServerObject/1.0.0": {
@@ -27,10 +24,7 @@
           "Protocols": "1.0.0"
         },
         "runtime": {
-          "ServerObject.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "ServerObject.dll": {}
         }
       }
     }
